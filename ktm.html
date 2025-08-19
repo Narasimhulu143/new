@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KTM Bikes</title>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .card:hover {
+            background-color: rgb(255, 255, 255);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .banner {
+            background-image: url("ktm/MY24-DUKE-HERO-IMAGE-PRESSKIT_Medium.jpg");
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner>div {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bikes-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .bike-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: white;
+            height: 280px;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .bike-card:hover .bike-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .bike-card:hover .bike-image img {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .bike-image {
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bike-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .bike-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: all 0.4s ease-out;
+        }
+
+        .bike-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .bike-specs {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .bike-price {
+            position: absolute;
+            top: 0px;
+            left: 15px;
+            background-color: rgba(255, 0, 0, 0.212);
+            color: rgb(61, 0, 0);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+
+        /* Photo Gallery Styles */
+        .photo-header:hover {
+            font-weight: 900;
+            color: red;
+        }
+
+        .collage-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            /* Change to auto for responsiveness */
+            border: 2px solid rgba(73, 73, 73, 0.212);
+            padding: 20px;
+            /* Add some padding */
+        }
+
+        .photo-frame {
+            position: relative;
+            /* Change to relative for better responsiveness */
+            border: 4px solid white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, z-index 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            margin: 10px;
+            /* Add margin for spacing */
+        }
+
+        .photo1 {
+            width: 40%;
+            height: 30vh;
+            min-width: 250px;
+            min-height: 150px;
+            top: 10%;
+            left: 5%;
+            transform: rotate(-5deg);
+            z-index: 3;
+        }
+
+        .photo2 {
+            width: 25%;
+            height: 40vh;
+            min-width: 350px;
+            min-height: 300px;
+            top: 5%;
+            right: 10%;
+            transform: rotate(3deg);
+            z-index: 2;
+        }
+
+        .photo3 {
+            width: 25%;
+            height: 25vh;
+            min-width: 350px;
+            min-height: 250px;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%) rotate(8deg);
+            z-index: 4;
+        }
+
+        .photo4 {
+            width: 30%;
+            height: 25vh;
+            min-width: 250px;
+            min-height: 300px;
+            bottom: 10%;
+            right: 15%;
+            transform: rotate(-10deg);
+            z-index: 1;
+        }
+
+        .photo5 {
+            width: 20%;
+            height: 20vh;
+            min-width: 400px;
+            min-height: 350px;
+            top: 30%;
+            right: 30%;
+            transform: rotate(12deg);
+            z-index: 5;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 100;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .bike-card {
+                height: auto;
+                /* Allow height to adjust automatically */
+            }
+
+
+        }
+
+        @media (max-width: 480px) {
+            .bike-card {
+                height: auto;
+                /* Allow height to adjust automatically */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="banner d-flex  justify-content-center text-white py-5 text-center">
+        <div>
+            <h2 class="display-4 fw-bold">Ride with Power</h2>
+            <p class="lead">Discover the latest <span class="text-danger fw-bold">KTM</span> Bikes with unmatched style
+                and performance</p>
+            <a href="#new-models" class="btn btn-outline-primary mt-3">Explore Now</a>
+        </div>
+    </section>
+    <!--  -->
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="dist/owl.carousel.min.js"></script>
+
+    <section class="constainer p-5 bg-light">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <img src="ktm/390 Adventure.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/duke125.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/duke200.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/duke250.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/duke390.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/rc 125.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/rc 200.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="ktm/rc 390.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+    <script>
+
+        //autoplay carousel
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+        });
+        $('.play').on('click', function () {
+            owl.trigger('play.owl.autoplay', [3000])
+        })
+        $('.stop').on('click', function () {
+            owl.trigger('stop.owl.autoplay')
+        })
+    </script>
+
+    <div class="container py-5">
+        <section class="bikes-container">
+            <h2 class="section-title mb-4">All KTM Models</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/390 Adventure.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM 390 Adventure</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item "></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/duke125.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM duke125</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/duke200.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM duke200</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/duke250.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name ">KTM duke250</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/duke390.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM duke390</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/rc 125.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM RC 125</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/rc 200.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM RC 200</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+
+                        <div class="bike-image">
+                            <img src="ktm/rc 390.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">KTM RC 390</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                                <span class="bike-spec-item"></span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- -------------------------------------------------- -->
+    <section>
+        <div class="container py-5">
+            <h2 class="mb-4 text-center">🏍️ KTM Bikes – Specs & Price (2025)</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Model</th>
+                        <th>Engine</th>
+                        <th>Mileage</th>
+                        <th>Top Speed</th>
+                        <th>Price (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KTM 125 Duke</td>
+                        <td>125 cc</td>
+                        <td>46.9 km/l</td>
+                        <td>120 km/h</td>
+                        <td>₹1.81 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 160 Duke</td>
+                        <td>164 cc</td>
+                        <td>45 km/l</td>
+                        <td>125 km/h</td>
+                        <td>₹1.85 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 200 Duke</td>
+                        <td>200 cc</td>
+                        <td>35 km/l</td>
+                        <td>142 km/h</td>
+                        <td>₹1.98 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 250 Duke</td>
+                        <td>249 cc</td>
+                        <td>30 km/l</td>
+                        <td>148 km/h</td>
+                        <td>₹2.41 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 390 Duke</td>
+                        <td>398 cc</td>
+                        <td>28.4 km/l</td>
+                        <td>167 km/h</td>
+                        <td>₹3.11 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM RC 200</td>
+                        <td>200 cc</td>
+                        <td>34 km/l</td>
+                        <td>140 km/h</td>
+                        <td>₹2.33 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM RC 390</td>
+                        <td>373 cc</td>
+                        <td>28 km/l</td>
+                        <td>170 km/h</td>
+                        <td>₹3.23 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 250 Adventure</td>
+                        <td>250 cc</td>
+                        <td>38.1 km/l</td>
+                        <td>140 km/h</td>
+                        <td>₹2.60 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 390 Adventure</td>
+                        <td>398 cc</td>
+                        <td>30 km/l</td>
+                        <td>155 km/h</td>
+                        <td>₹3.39 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 390 Adventure X</td>
+                        <td>398 cc</td>
+                        <td>30 km/l</td>
+                        <td>135 km/h</td>
+                        <td>₹2.91 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 890 Duke R</td>
+                        <td>889 cc</td>
+                        <td>22 km/l</td>
+                        <td>200 km/h</td>
+                        <td>₹14.50 Lakh</td>
+                    </tr>
+                    <tr>
+                        <td>KTM 1390 Super Duke R</td>
+                        <td>1350 cc</td>
+                        <td>18 km/l</td>
+                        <td>250 km/h</td>
+                        <td>₹22.95 Lakh</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <section class="container">
+
+        <h2 class="mt-5 mb-4 text-center">💳 EMI Options (36 Months)</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Model</th>
+                    <th>Down Payment</th>
+                    <th>Monthly EMI</th>
+                    <th>Interest Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>KTM 160 Duke</td>
+                    <td>₹15,000</td>
+                    <td>₹4,290</td>
+                    <td>8%</td>
+                </tr>
+                <tr>
+                    <td>KTM 250 Duke</td>
+                    <td>₹25,000</td>
+                    <td>₹5,800</td>
+                    <td>9%</td>
+                </tr>
+                <tr>
+                    <td>KTM 390 Duke</td>
+                    <td>₹30,000</td>
+                    <td>₹7,600</td>
+                    <td>9.5%</td>
+                </tr>
+                <tr>
+                    <td>KTM RC 390</td>
+                    <td>₹35,000</td>
+                    <td>₹8,200</td>
+                    <td>10%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="text-muted text-center mt-3">*EMI values are approximate and may vary based on dealer offers.</p>
+        </div>
+    </section>
+    <section class="container p-5 bg-dark-subtle">
+        <div class="photo-header text-center ">
+            <h2>PHOTO GALLERY</h2>
+        </div>
+        <div class="collage-container">
+            <div class="photo-frame photo1 col-12 col-sm-2">
+                <img src="ktm/photo3.jpg" alt=""
+                    onerror="this.style.background='linear-gradient(45deg, #ff6b6b, #ffa500)'" />
+            </div>
+
+            <div class="photo-frame photo2 col-12 col-sm-2">
+                <img src="ktm/photo4.jpg" alt=""
+                    onerror="this.style.background='linear-gradient(45deg, #4ecdc4, #44a08d)'" />
+            </div>
+
+            <div class="photo-frame photo3 col-12 col-sm-2">
+                <img src="ktm/photo1.jpg" alt=""
+                    onerror="this.style.background='linear-gradient(45deg, #667eea, #764ba2)'" />
+            </div>
+
+            <div class="photo-frame photo4 col-12 col-sm-2">
+                <img src="ktm/photo2.jpg" alt=""
+                    onerror="this.style.background='linear-gradient(45deg, #f093fb, #f5576c)'" />
+            </div>
+
+            <div class="photo-frame photo5 col-12 col-sm-2">
+                <img src="ktm/photo5.jpg" alt=""
+                    onerror="this.style.background='linear-gradient(45deg, #ffeaa7, #fab1a0)'" />
+            </div>
+    </section>
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-3 bg-light text-muted">
+        &copy; 2025 KTM Bikes Project | Made with ❤
+    </footer>
+</body>
+
+</html>

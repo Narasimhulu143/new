@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Hero Bikes</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+   <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Hero Bikes</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css">
+      <style>
+         .banner {
+            background-image: url("hero/banner.png");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: start;
+         }
+
+         .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+         }
+
+         .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 1rem;
+         }
+
+         .banner h2 {
+            font-size: calc(1.5rem + 1vw);
+            font-weight: bold;
+         }
+
+         .banner p {
+            font-size: calc(1rem + 0.5vw);
+         }
+
+         .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+         }
+
+         marquee img {
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1);
+         }
+
+         marquee img:hover {
+            transform: scale(1.1);
+         }
+      </style>
+   </head>
+
+<body>
+   <!-- Navbar -->
+   <nav class="navbar navbar-light bg-light fixed-top bg-transparent">
+      <div class="container-fluid">
+         <a class="navbar-brand fw-bold text-danger mx-5" href="#">HERO Bikes</a>
+         <button class="navbar-toggler text-bg-danger" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Hero Bikes</a>
+                     <div class="dropdown-menu py-3" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Hero Destini 125</a>
+                        <a class="dropdown-item" href="#">Hero Glamour 125</a>
+                        <a class="dropdown-item" href="#">Hero Xtreme 160R</a>
+                        <a class="dropdown-item" href="#">Hero Xpulse 200</a>
+                        <a class="dropdown-item" href="#">Hero Xpulse 200T</a>
+                        <a class="dropdown-item" href="#">Hero Xtreme 200S</a>
+                        <a class="dropdown-item" href="#">Hero Xtreme 200R</a>
+                        <a class="dropdown-item" href="#">Hero Xtreme 160Z</a>
+                        <a class="dropdown-item" href="#">Hero super splendor</a>
+                        <a class="dropdown-item" href="#">Hero HF Deluxe</a>
+                        <a class="dropdown-item" href="#">Hero Passion Pro</a>
+                        <a class="dropdown-item" href="#">Hero Passion XPro</a>
+                        <a class="dropdown-item" href="#">Hero Passion Pro TR</a>
+                        <a class="dropdown-item" href="#">Hero Passion XPro TR</a>
+                        <a class="dropdown-item" href="#">Hero Splendor iSmart</a>
+                        <a class="dropdown-item" href="#">Hero Splendor Plus</a>
+                        <a class="dropdown-item" href="#">Hero Splendor Pro</a>
+                        <a class="dropdown-item" href="#">Hero Splendor Pro Classic</a>
+                        <a class="dropdown-item" href="#">Hero maestro pro</a>
+                        <a class="dropdown-item" href="#">Hero Maestro Edge</a>
+                     </div>
+                  </li>
+               </ul>
+               <form class="d-flex mt-3 mt-md-0">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </nav>
+   <!-- Banner Section -->
+   <section class="banner">
+      <div class="banner-content container">
+         <h2 class="fw-bold">Ride with Power</h2>
+         <p>Discover the latest <span class="text-danger fw-bold">HERO</span> Bikes with matched style and performance
+         </p>
+         <a href="#new-models" class="btn btn-outline-primary mt-3">Explore Now</a>
+      </div>
+   </section>
+   <!-------------------  -->
+   </div>
+   <div class="container my-5">
+      <h2 class="text-center fw-bold mb-4">Hero Bikes <span class="text-danger">All Modals</span>(2025)</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero destini 125.jpg" class="card-img-top" alt="Hero Destini 125">
+               <div class="card-body">
+                  <h5 class="card-title">Destini 125</h5>
+                  <p class="card-text">124.6cc - 9 bhp - ₹81,850</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero glamour.jpg" class="card-img-top" alt="Hero Glamour">
+               <div class="card-body">
+                  <h5 class="card-title">Glamour</h5>
+                  <p class="card-text">124.7cc - 10.7 PS - ₹90,498</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero hf 100.jpg" class="card-img-top" alt="Hero HF 100">
+               <div class="card-body">
+                  <h5 class="card-title">HF 100</h5>
+                  <p class="card-text">97.2cc - 8.02 PS - ₹56,968</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero hf deluxe.jpg" class="card-img-top" alt="Hero HF Deluxe">
+               <div class="card-body">
+                  <h5 class="card-title">HF Deluxe</h5>
+                  <p class="card-text">97.2cc - 8.02 PS - ₹59,998</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero maestro edge 110.jpg" class="card-img-top" alt="Hero Maestro Edge">
+               <div class="card-body">
+                  <h5 class="card-title">Maestro Edge</h5>
+                  <p class="card-text">124.6cc - 9 bhp - ₹86,766</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero passion pro.jpg" class="card-img-top" alt="Hero Passion Pro">
+               <div class="card-body">
+                  <h5 class="card-title">Passion Pro</h5>
+                  <p class="card-text">113cc - 9.02 PS - ₹82,451</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero pleasure+.jpg" class="card-img-top" alt="Hero Pleasure+">
+               <div class="card-body">
+                  <h5 class="card-title">Pleasure+</h5>
+                  <p class="card-text">110.9cc - 8 PS - ₹71,763</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero splendor i3s.jpg" class="card-img-top" alt="Hero Splendor i3s">
+               <div class="card-body">
+                  <h5 class="card-title">Splendor i3s</h5>
+                  <p class="card-text">97.2cc - 8.02 PS - ₹79,426</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero splendor ismart.jpg" class="card-img-top" alt="Hero Splendor iSmart">
+               <div class="card-body">
+                  <h5 class="card-title">Splendor iSmart</h5>
+                  <p class="card-text">113.2cc - 9 PS - ₹74,998</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero splendor+.jpg" class="card-img-top" alt="Hero Splendor+">
+               <div class="card-body">
+                  <h5 class="card-title">Splendor+</h5>
+                  <p class="card-text">97.2cc - 8.02 PS - ₹79,426</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero super splendor.jpg" class="card-img-top" alt="Hero Super Splendor">
+               <div class="card-body">
+                  <h5 class="card-title">Super Splendor</h5>
+                  <p class="card-text">124.7cc - 10.7 PS - ₹85,000</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero xpulse 160r.jpg" class="card-img-top" alt="Hero Xpulse 160R">
+               <div class="card-body">
+                  <h5 class="card-title">Xpulse 160R</h5>
+                  <p class="card-text">163cc - 15 PS - ₹1,13,211</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero xpulse 200.jpg" class="card-img-top" alt="Hero Xpulse 200">
+               <div class="card-body">
+                  <h5 class="card-title">Xpulse 200</h5>
+                  <p class="card-text">199.6cc - 18.6 PS - ₹1,51,500</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <img src="hero/hero xpulse 200t.jpg" class="card-img-top" alt="Hero Xpulse 200T">
+               <div class="card-body">
+                  <h5 class="card-title">Xpulse 200T</h5>
+                  <p class="card-text">199.6cc - 18.6 PS - ₹1,39,000</p>
+                  <a href="#table" class="btn btn-outline-primary">View Details</a>
+                  <button class="btn btn-outline-success">Book Now</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--  -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+   <script>
+      $(document).ready(function () {
+         $('table').DataTable();
+      });
+   </script>
+   <section>
+      <div class="container my-5" id="new-models">
+         <h2 class="text-center mb-4 fw-bold">Hero Bikes <span class="text-danger">Specifications</span>(2025)</h2>
+         <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped align-middle text-center" id="table">
+               <thead class="table-dark">
+                  <tr>
+                     <th>Model</th>
+                     <th>Engine (cc)</th>
+                     <th>Mileage (km/l)</th>
+                     <th>Power (PS)</th>
+                     <th>Torque (Nm)</th>
+                     <th>Price (₹)</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Xtreme 125R</td>
+                     <td>125</td>
+                     <td>64–68</td>
+                     <td>11.4 at 8250 rpm</td>
+                     <td>10.5 at 6000 rpm</td>
+                     <td>₹98,425</td>
+                  </tr>
+                  <tr>
+                     <td>Splendor Plus</td>
+                     <td>97.2</td>
+                     <td>77–82</td>
+                     <td>8.02 at 8000 rpm</td>
+                     <td>8.05 at 6000 rpm</td>
+                     <td>₹79,426</td>
+                  </tr>
+                  <tr>
+                     <td>HF Deluxe</td>
+                     <td>97.2</td>
+                     <td>71–76</td>
+                     <td>8.02 at 8000 rpm</td>
+                     <td>8.05 at 6000 rpm</td>
+                     <td>₹59,998</td>
+                  </tr>
+                  <tr>
+                     <td>Passion Plus</td>
+                     <td>97.2</td>
+                     <td>68–78</td>
+                     <td>8.02 at 8000 rpm</td>
+                     <td>8.05 at 6000 rpm</td>
+                     <td>₹82,451</td>
+                  </tr>
+                  <tr>
+                     <td>Glamour XTEC</td>
+                     <td>124.7</td>
+                     <td>58–63</td>
+                     <td>10.7 at 7500 rpm</td>
+                     <td>10.6 at 6000 rpm</td>
+                     <td>₹90,498</td>
+                  </tr>
+                  <tr>
+                     <td>Xtreme 160R</td>
+                     <td>163</td>
+                     <td>47–52</td>
+                     <td>15 at 8500 rpm</td>
+                     <td>14 at 6500 rpm</td>
+                     <td>₹1,13,211</td>
+                  </tr>
+                  <tr>
+                     <td>Xtreme 160R 4V</td>
+                     <td>163</td>
+                     <td>47–52</td>
+                     <td>16.6 at 8500 rpm</td>
+                     <td>14.6 at 6500 rpm</td>
+                     <td>₹1,40,600</td>
+                  </tr>
+                  <tr>
+                     <td>Xtreme 250R</td>
+                     <td>249.03</td>
+                     <td>35–40</td>
+                     <td>30 at 9250 rpm</td>
+                     <td>25 at 7250 rpm</td>
+                     <td>₹1,79,900</td>
+                  </tr>
+                  <tr>
+                     <td>Xpulse 200 4V</td>
+                     <td>199.6</td>
+                     <td>32–41</td>
+                     <td>18.6 at 8500 rpm</td>
+                     <td>17.35 at 6500 rpm</td>
+                     <td>₹1,51,500</td>
+                  </tr>
+                  <tr>
+                     <td>Xpulse 210</td>
+                     <td>210</td>
+                     <td>36–40</td>
+                     <td>24.6 at 9250 rpm</td>
+                     <td>20.75 at 7250 rpm</td>
+                     <td>₹1,75,800</td>
+                  </tr>
+                  <tr>
+                     <td>Karizma XMR</td>
+                     <td>210</td>
+                     <td>46–49</td>
+                     <td>25.5 at 9250 rpm</td>
+                     <td>20.4 at 7250 rpm</td>
+                     <td>₹1,99,750</td>
+                  </tr>
+                  <tr>
+                     <td>Mavrick 440</td>
+                     <td>440</td>
+                     <td>—</td>
+                     <td>—</td>
+                     <td>—</td>
+                     <td>₹1,99,500</td>
+                  </tr>
+                  <tr>
+                     <td>Xoom 125</td>
+                     <td>110.9</td>
+                     <td>50–65</td>
+                     <td>8.16 at 7250 rpm</td>
+                     <td>8.7 at 5750 rpm</td>
+                     <td>₹86,900</td>
+                  </tr>
+                  <tr>
+                     <td>Xoom 160</td>
+                     <td>156</td>
+                     <td>37–42</td>
+                     <td>15.6 at 8000 rpm</td>
+                     <td>14 at 6500 rpm</td>
+                     <td>₹1,48,500</td>
+                  </tr>
+                  <tr>
+                     <td>Pleasure Plus XTEC</td>
+                     <td>110.9</td>
+                     <td>50–55</td>
+                     <td>8.0 at 7000 rpm</td>
+                     <td>8.7 at 5500 rpm</td>
+                     <td>₹71,763</td>
+                  </tr>
+                  <tr>
+                     <td>Destini 125</td>
+                     <td>124.6</td>
+                     <td>50–59</td>
+                     <td>9.12 at 7000 rpm</td>
+                     <td>10.4 at 5500 rpm</td>
+                     <td>₹81,850</td>
+                  </tr>
+                  <tr>
+                     <td>Destini Prime</td>
+                     <td>124.6</td>
+                     <td>56</td>
+                     <td>9 at 7000 rpm</td>
+                     <td>10.36 at 5500 rpm</td>
+                     <td>₹74,199</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </section>
+   <div class="container-fluid">
+      <div>
+         <marquee behavior="scroll" direction="right">
+            <img src="hero/specal bike.avif" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero destini 125.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero glamour.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero hf 100.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero hf deluxe.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero maestro edge 110.jpg" alt="" class=" " width="300" height="200">
+            <img src="hero/hero passion pro.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero pleasure+.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero splendor i3s.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero splendor ismart.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero xpulse 160r.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero xpulse 200.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero xpulse 200t.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+            <img src="hero/hero super splendor.jpg" alt="Special Hero Bike" class=" " width="300" height="200">
+
+         </marquee>
+
+      </div>
+      <footer class="text-center mt-5 py-3 bg-light text-muted">
+         &copy; 2025 HERO Bikes Project | Made with ❤
+      </footer>
+</body>
+
+</html>

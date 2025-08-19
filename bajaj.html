@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BAJAJ BIKES</title>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <style>
+        .card:hover {
+            background-color: rgb(255, 255, 255);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+
+        }
+
+        .banner {
+            background-image: url("bajaj/Bajaj-Offer-Main-620x413.png");
+            background-size: cover;
+            height: 550px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner>div {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .bikes-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .bike-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: white;
+            height: 280px;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .bike-card:hover .bike-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .bike-card:hover .bike-image img {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .bike-image {
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bike-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .bike-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: all 0.4s ease-out;
+        }
+
+        .bike-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .bike-specs {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .bike-price {
+            position: absolute;
+            top: 0px;
+            left: 15px;
+            background-color: rgba(255, 0, 0, 0.212);
+            color: rgb(61, 0, 0);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+
+        .bikes-btn {
+            top: 50%;
+            position: relative;
+            top: 25%;
+        }
+
+        .bike-btn:hover {
+            background: linear-gradient(to top, rgba(128, 128, 128, 0.9), transparent);
+            position: absolute;
+        }
+
+        #menu {
+            width: 650px;
+            height: 100px;
+            font-size: 30px;
+            border-radius: 20px;
+            background-color: rgba(68, 0, 0, 0.842);
+            color: white;
+            text-align: center;
+            margin: 10px 30%;
+        }
+
+        #menu:hover {
+            background-color: rgba(230, 26, 26, 0.842);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="bg-light  border-bottom shadow-sm text-center">
+        <h1 class="display-5 fw-bold text-danger mb-1"> Bajaj Bikes</h1>
+        <p class="text-muted fs-5">Ride with style. Explore power and performance.</p>
+    </header>
+
+    <section class="banner d-flex  justify-content-center text-white py-5 text-center">
+        <div>
+            <h2 class="display-4 fw-bold">Ride with Power</h2>
+            <p class="lead">Discover the latest Bajaj Bikes with unmatched style and performance</p>
+            <a href="#new-models" class="btn btn-outline-primary mt-3">Explore Now</a>
+        </div>
+    </section>
+    <section class="container mb-5">
+        <h2 class="mb-4 py-2"> New Bajaj Models</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div style="height: 200px;">
+                        <img src="Bajaj/Bajaj 150-street.jpg" alt="" class="w-75">
+                    </div> <!-- Image Placeholder -->
+                    <div class="card-body">
+                        <h5 class="card-title">Honda SP 160</h5>
+                        <p class="card-text">A new commuter bike with a sporty design and a 162cc engine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div style="height: 200px;">
+                        <img src="Bajaj/Bajaj ns200.jpg" alt="" class="w-75 ">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Honda NX500</h5>
+                        <p class="card-text">An adventure touring bike with long-distance comfort and advanced tech.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 ">
+                    <div style="height: 250px;">
+                        <img src="Bajaj/Bajaj v15.jpg" alt="" class="w-75">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Honda CB200X 2024</h5>
+                        <p class="card-text">A refreshed city explorer with rugged looks and better handling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------------------------------- -->
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            $('.info').hide()
+
+            $('#menu').click(() => {
+                $('.info').fadeToggle(300)
+
+            })
+        })
+    </script>
+    <!-- -------------------------------------------------- -->
+    <button id="menu"> Bajaj Bikes – Detailed Specs & Price (2025)(Click)</button>
+    <section class="container mb-5">
+        <section class="info">
+            <h2 class="mb-4 text-center"> Bajaj Bikes – Detailed Specs & Price (2025)</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Model</th>
+                        <th>Engine</th>
+                        <th>Power</th>
+                        <th>Mileage</th>
+                        <th>Top Speed</th>
+                        <th>Price (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bajaj Platina 100</td>
+                        <td>102 cc</td>
+                        <td>7.9 PS</td>
+                        <td>70–75 km/l</td>
+                        <td>90 km/h</td>
+                        <td>₹71,649</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Platina 110</td>
+                        <td>115.45 cc</td>
+                        <td>8.6 PS</td>
+                        <td>70 km/l</td>
+                        <td>90 km/h</td>
+                        <td>₹75,438</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj CT 110</td>
+                        <td>115 cc</td>
+                        <td>8.6 PS</td>
+                        <td>65 km/l</td>
+                        <td>90 km/h</td>
+                        <td>₹73,105</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar 125</td>
+                        <td>124.4 cc</td>
+                        <td>11.64 PS</td>
+                        <td>50 km/l</td>
+                        <td>105 km/h</td>
+                        <td>₹86,759</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar NS125</td>
+                        <td>124.45 cc</td>
+                        <td>12 PS</td>
+                        <td>64.75 km/l</td>
+                        <td>110 km/h</td>
+                        <td>₹1,00,029</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar N125</td>
+                        <td>124.58 cc</td>
+                        <td>12 PS</td>
+                        <td>58 km/l</td>
+                        <td>110 km/h</td>
+                        <td>₹94,741</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar 150</td>
+                        <td>149.5 cc</td>
+                        <td>14 PS</td>
+                        <td>48 km/l</td>
+                        <td>110 km/h</td>
+                        <td>₹1,17,241</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar N160</td>
+                        <td>164.82 cc</td>
+                        <td>16 PS</td>
+                        <td>47 km/l</td>
+                        <td>120 km/h</td>
+                        <td>₹1,23,298</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar NS160</td>
+                        <td>160.3 cc</td>
+                        <td>17.2 PS</td>
+                        <td>40.36 km/l</td>
+                        <td>120 km/h</td>
+                        <td>₹1,39,899</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar NS200</td>
+                        <td>199.5 cc</td>
+                        <td>24.13 PS</td>
+                        <td>36 km/l</td>
+                        <td>135 km/h</td>
+                        <td>₹1,52,950</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar RS200</td>
+                        <td>199.5 cc</td>
+                        <td>24.5 PS</td>
+                        <td>35 km/l</td>
+                        <td>140 km/h</td>
+                        <td>₹1,86,568</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar NS400Z</td>
+                        <td>373.27 cc</td>
+                        <td>40 PS</td>
+                        <td>34 km/l</td>
+                        <td>160 km/h</td>
+                        <td>₹1,92,938</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar N250</td>
+                        <td>249.07 cc</td>
+                        <td>24.5 PS</td>
+                        <td>39 km/l</td>
+                        <td>135 km/h</td>
+                        <td>₹1,45,326</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Dominar 250</td>
+                        <td>248.77 cc</td>
+                        <td>27 PS</td>
+                        <td>35.03 km/l</td>
+                        <td>132 km/h</td>
+                        <td>₹1,92,275</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Dominar 400</td>
+                        <td>373.3 cc</td>
+                        <td>40 PS</td>
+                        <td>27 km/l</td>
+                        <td>165 km/h</td>
+                        <td>₹2,37,812</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Avenger Street 160</td>
+                        <td>160 cc</td>
+                        <td>15 PS</td>
+                        <td>45 km/l</td>
+                        <td>110 km/h</td>
+                        <td>₹1,21,668</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Avenger Cruise 220</td>
+                        <td>220 cc</td>
+                        <td>19.03 PS</td>
+                        <td>40 km/l</td>
+                        <td>120 km/h</td>
+                        <td>₹1,48,911</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Pulsar 220 F</td>
+                        <td>220 cc</td>
+                        <td>20.4 PS</td>
+                        <td>40 km/l</td>
+                        <td>135 km/h</td>
+                        <td>₹1,38,753</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Chetak (Electric)</td>
+                        <td>Electric</td>
+                        <td>4.2 kW</td>
+                        <td>90–100 km/charge</td>
+                        <td>63 km/h</td>
+                        <td>₹1,07,149</td>
+                    </tr>
+                    <tr>
+                        <td>Bajaj Freedom 125</td>
+                        <td>124.58 cc</td>
+                        <td>9.5 PS</td>
+                        <td>65 km/l</td>
+                        <td>100 km/h</td>
+                        <td>₹91,197</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-muted text-center mt-3">*Specs and prices are approximate and may vary by location and
+                dealer offers.</p>
+            </div>
+        </section>
+    </section>
+    <div class="container py-5">
+        <section class="bikes-container">
+            <h2 class="section-title mb-4">All Bajaj Models</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,38,753</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj 220f.jpg" alt="Bajaj Pulsar 220 F">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Pulsar 220 F</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">220 cc</span>
+                                <span class="bike-spec-item">20.4 PS</span>
+                                <span class="bike-spec-item">40 km/l</span>
+                                <span class="bike-spec-item">135 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹73,105</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj ct100.jpg" alt="Bajaj CT 110">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj CT 110</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">115 cc</span>
+                                <span class="bike-spec-item">8.6 PS</span>
+                                <span class="bike-spec-item">65 km/l</span>
+                                <span class="bike-spec-item">90 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,21,668</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj 220-cruise.jpg" alt="Bajaj Avenger Street 160">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Avenger Street 160</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">160 cc</span>
+                                <span class="bike-spec-item">15 PS</span>
+                                <span class="bike-spec-item">45 km/l</span>
+                                <span class="bike-spec-item">110 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹71,649</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj platina100.jpg" alt="Bajaj Platina 100">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Platina 100</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">102 cc</span>
+                                <span class="bike-spec-item">7.9 PS</span>
+                                <span class="bike-spec-item">70–75 km/l</span>
+                                <span class="bike-spec-item">90 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,52,950</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj ns200.jpg" alt="Bajaj Pulsar NS200">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Pulsar NS200</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">199.5 cc</span>
+                                <span class="bike-spec-item">24.13 PS</span>
+                                <span class="bike-spec-item">36 km/l</span>
+                                <span class="bike-spec-item">135 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,86,568</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj rs200.jpg" alt="Bajaj Pulsar RS200"
+                                style="width:350px; height:220px; object-fit:cover; transform: scaleX(-1);">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Pulsar RS200</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">199.5 cc</span>
+                                <span class="bike-spec-item">24.5 PS</span>
+                                <span class="bike-spec-item">35 km/l</span>
+                                <span class="bike-spec-item">140 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,39,899</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj ns160.jpg" alt="Bajaj Pulsar NS160">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Pulsar NS160</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">160.3 cc</span>
+                                <span class="bike-spec-item">17.2 PS</span>
+                                <span class="bike-spec-item">40.36 km/l</span>
+                                <span class="bike-spec-item">120 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹2,37,812</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj Dominar-400.jpg" alt="Bajaj Dominar 400">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Dominar 400</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">373.3 cc</span>
+                                <span class="bike-spec-item">40 PS</span>
+                                <span class="bike-spec-item">27 km/l</span>
+                                <span class="bike-spec-item">165 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹75,438</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj v12.jpg" alt="Bajaj v12">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj v12</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">115.45 cc</span>
+                                <span class="bike-spec-item">8.6 PS</span>
+                                <span class="bike-spec-item">70 km/l</span>
+                                <span class="bike-spec-item">90 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹86,759</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj v15.jpg" alt="Bajaj v15">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj v15</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">124.4 cc</span>
+                                <span class="bike-spec-item">11.64 PS</span>
+                                <span class="bike-spec-item">50 km/l</span>
+                                <span class="bike-spec-item">105 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,00,029</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj ns200.jpg" alt="Bajaj Pulsar NS200">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Pulsar NS200</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">124.45 cc</span>
+                                <span class="bike-spec-item">12 PS</span>
+                                <span class="bike-spec-item">64.75 km/l</span>
+                                <span class="bike-spec-item">110 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹1,23,298</div>
+                        <div class="bike-image">
+                            <img src="Bajaj/Bajaj ns160.jpg" alt="Bajaj Pulsar N160">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Bajaj Pulsar N160</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">164.82 cc</span>
+                                <span class="bike-spec-item">16 PS</span>
+                                <span class="bike-spec-item">47 km/l</span>
+                                <span class="bike-spec-item">120 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3 rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-3  bg-dark-subtle">
+        &copy; 2025 Bajaj Bikes Project | Made with ❤
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Hero Bikes</title>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+   <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+   <!DOCTYPE html>
+   <html lang="en">
+
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Hero Bikes</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css">
+      <style>
+         * {
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+         }
+
+         .banner {
+            background-image: url("suzuki/banner1.png");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+         }
+
+         .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+         }
+
+         .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 1rem;
+         }
+
+         .banner h2 {
+            font-size: calc(1.5rem + 1vw);
+            font-weight: bold;
+         }
+
+         .banner p {
+            font-size: calc(1rem + 0.5vw);
+         }
+
+         .card:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+         }
+
+         marquee img {
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+            transform: scale(1);
+         }
+
+         marquee img:hover {
+            transform: scale(1.1);
+         }
+      </style>
+   </head>
+
+<body>
+   <!-- Navbar -->
+   <nav class="navbar navbar-light bg-light fixed-top bg-transparent">
+      <div class="container-fluid">
+          <a class="navbar-brand fw-bold text-primary mx-5" href="#"><img src="suzuki/logo.png" alt="Suzuki logo featuring a bold red stylized S on a transparent background, conveying a sense of speed and modernity. No text present in the image. The logo is set against a checkered pattern, suggesting a dynamic and energetic environment." class="bg-transparent" width="50px" height="50px"> Suzuki </a>
+         <button class="navbar-toggler text-bg-primary" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Suzuki Bikes</a>
+                     <div class="dropdown-menu py-3" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">GSX-R1000</a>
+                        <a class="dropdown-item" href="#">Hayabusa</a>
+                        <a class="dropdown-item" href="#">Intruder Boss</a>
+                        <a class="dropdown-item" href="#">Intruder M1800R</a>
+                        <a class="dropdown-item" href="#">Gixxer SF SP</a>
+                        <a class="dropdown-item" href="#">Gixxer SF</a>
+                        <a class="dropdown-item" href="#">Gixxer</a>
+                        <a class="dropdown-item" href="#">GSX-S1000</a>
+                        <a class="dropdown-item" href="#">GSX-S1000F</a>
+                        <a class="dropdown-item" href="#">Hayate EP</a>
+                        <a class="dropdown-item" href="#">V-Strom 1000</a>
+                        <a class="dropdown-item" href="#">Access 125</a>
+                        <a class="dropdown-item" href="#">Burgman Street 125</a>
+                        <a class="dropdown-item" href="#">Gixxer 150</a>
+                        <a class="dropdown-item" href="#">Gixxer SF 250</a>
+                        <a class="dropdown-item" href="#">V-Strom SX 250</a>
+                        <a class="dropdown-item" href="#">Intruder 250 (Upcoming)</a>
+                        <a class="dropdown-item" href="#">GSX R1000R (Upcoming)</a>
+                        <a class="dropdown-item" href="#">Burgman Electric</a>
+                     </div>
+                  </li>
+               </ul>
+               <form class="d-flex mt-3 mt-md-0">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </nav>
+
+   <!-- Banner Section -->
+   <section class="banner">
+      <div class="banner-content container">
+         <h2 class="fw-bold">Ride with Power</h2>
+         <p>Discover the latest <span class="text-danger fw-bold">SUZUKI</span> Bikes with matched style and performance
+         </p>
+         <a href="#new-models" class="btn btn-outline-primary mt-3">Explore Now</a>
+      </div>
+   </section>
+   <!-------------------  -->
+   </div>
+   <div class="container my-5">
+      <h2 class="text-center fw-bold mb-4">Suzuki Bikes <span class="text-primary">All Modals</span>(2025)</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/gsx-r1000.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">GSX-R1000</h3>
+                  <p class="card-text">999cc | ~199 PS | ₹19,82,000*</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/hayabusa.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Hayabusa</h3>
+                  <p class="card-text">1340cc | 190 PS | ₹16,90,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/intruder boss.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Intruder Boss</h3>
+                  <p class="card-text">1783cc | 127 PS | ₹16,70,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/intruder m1800r.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Intruder M1800R</h3>
+                  <p class="card-text">1783cc | 127 PS | ₹16,70,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/su-gixxer sf sp.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Gixxer SF SP</h3>
+                  <p class="card-text">155cc | 13.6 PS | ₹1,38,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/su-gixxer sf.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Gixxer SF</h3>
+                  <p class="card-text">155cc | 13.6 PS | ₹1,38,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/su-gixxer.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Gixxer</h3>
+                  <p class="card-text">155cc | 13.6 PS | ₹1,38,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/su-gsx-s1000.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">GSX-S1000</h3>
+                  <p class="card-text">999cc | ~150 PS | ₹12,00,000*</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/su-gsx-s1000f.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">GSX-S1000F</h3>
+                  <p class="card-text">999cc | ~150 PS | ₹12,00,000*</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/su-hayate ep.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">Hayate EP</h3>
+                  <p class="card-text">113cc | 8.7 PS | ₹56,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+
+               </div>
+            </div>
+         </div>
+
+         <div class="col">
+            <div class="card h-100">
+               <img src="suzuki/v-strom 1000.jpg" class="card-img-top">
+               <div class="card-body">
+                  <h3 class="card-title">V-Strom 1000</h3>
+                  <p class="card-text">1037cc | 101 PS | ₹13,45,000</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  <button class="btn btn-success">Book Now</button>
+
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card h-100">
+               <h5 class="card-title">Suzuki bikes in India</h5>
+               <img src="suzuki/map.png" class="card-img-top">
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+
+   <!--  -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+   <script>
+      $(document).ready(function () {
+         $('table').DataTable();
+      });
+   </script>
+   <section>
+      <div class="container my-5" id="suzuki-models">
+         <h2 class="text-center mb-4 fw-bold">Suzuki Bikes <span class="text-primary">Specifications</span> (2025)</h2>
+         <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped align-middle text-center">
+               <thead class="table-dark">
+                  <tr>
+                     <th>Model</th>
+                     <th>Engine (cc)</th>
+                     <th>Mileage (km/l)</th>
+                     <th>Power (PS)</th>
+                     <th>Torque (Nm)</th>
+                     <th>Price (₹)</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Access 125</td>
+                     <td>124</td>
+                     <td>50–55</td>
+                     <td>8.7 at 6750 rpm</td>
+                     <td>10 at 5500 rpm</td>
+                     <td>₹86,792</td>
+                  </tr>
+                  <tr>
+                     <td>Burgman Street 125</td>
+                     <td>124</td>
+                     <td>45–50</td>
+                     <td>8.6 at 6750 rpm</td>
+                     <td>10 at 5500 rpm</td>
+                     <td>₹95,000</td>
+                  </tr>
+                  <tr>
+                     <td>Gixxer 150</td>
+                     <td>155</td>
+                     <td>45–50</td>
+                     <td>13.6 at 8000 rpm</td>
+                     <td>13.8 at 6000 rpm</td>
+                     <td>₹1,38,000</td>
+                  </tr>
+                  <tr>
+                     <td>Gixxer SF 250</td>
+                     <td>249</td>
+                     <td>35–40</td>
+                     <td>26.5 at 9300 rpm</td>
+                     <td>22.2 at 7300 rpm</td>
+                     <td>₹2,07,000</td>
+                  </tr>
+                  <tr>
+                     <td>V-Strom SX 250</td>
+                     <td>249</td>
+                     <td>32–38</td>
+                     <td>26.5 at 9300 rpm</td>
+                     <td>22.2 at 7300 rpm</td>
+                     <td>₹2,16,000</td>
+                  </tr>
+                  <tr>
+                     <td>Intruder 250 (Upcoming)</td>
+                     <td>249</td>
+                     <td>—</td>
+                     <td>~26 at 9000 rpm</td>
+                     <td>~22 at 7000 rpm</td>
+                     <td>₹1,80,000*</td>
+                  </tr>
+                  <tr>
+                     <td>GSX-S1000 (Upcoming)</td>
+                     <td>999</td>
+                     <td>—</td>
+                     <td>~150 at 11,000 rpm</td>
+                     <td>~106 at 9250 rpm</td>
+                     <td>₹12,00,000*</td>
+                  </tr>
+                  <tr>
+                     <td>GSX R1000R (Upcoming)</td>
+                     <td>999</td>
+                     <td>—</td>
+                     <td>~199 at 13,200 rpm</td>
+                     <td>~117.6 at 10,000 rpm</td>
+                     <td>₹19,82,000*</td>
+                  </tr>
+                  <tr>
+                     <td>Burgman Electric</td>
+                     <td>— (EV)</td>
+                     <td>~90 km/charge</td>
+                     <td>—</td>
+                     <td>—</td>
+                     <td>₹1,20,000*</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p class="text-end fst-italic text-muted">*Expected launch and price</p>
+         </div>
+      </div>
+   </section>
+   
+      <footer class="text-center mt-5 py-3 bg-light text-muted">
+         &copy; 2025 suzuki Bikes Project | Made with ❤
+      </footer>
+</body>
+
+</html>

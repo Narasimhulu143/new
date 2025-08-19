@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honda Bikes</title>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <style>
+        .card:hover {
+            background-color: rgb(255, 255, 255);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+
+        }
+
+        .banner {
+            background-image: url("honda/all-bike\ 2.jpg");
+            background-size: cover;
+            height: 550px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner>div {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .bikes-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .bike-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: white;
+            height: 280px;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .bike-card:hover .bike-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .bike-card:hover .bike-image img {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .bike-image {
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bike-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .bike-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: all 0.4s ease-out;
+        }
+
+        .bike-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .bike-specs {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .bike-price {
+            position: absolute;
+            top: 0px;
+            left: 15px;
+            background-color: rgba(255, 0, 0, 0.212);
+            color: rgb(61, 0, 0);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="bg-light py-2 border-bottom shadow-sm text-center">
+        <h1 class="display-5 fw-bold text-danger mb-1">🏍 Honda Bikes</h1>
+        <p class="text-muted fs-5">Ride with style. Explore power and performance.</p>
+    </header>
+
+    <section class="banner d-flex  justify-content-center text-white py-5 text-center">
+        <div>
+            <h2 class="display-4 fw-bold">Ride with Power</h2>
+            <p class="lead">Discover the latest Honda Bikes with unmatched style and performance</p>
+            <a href="#new-models" class="btn btn-outline-primary mt-3">Explore Now</a>
+        </div>
+    </section>
+
+
+
+    <section class="container mb-5">
+        <h2 class="mb-4 py-2"> New Honda Models</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div style="height: 200px;">
+                        <img src="honda/Honda sp 125.jpg" alt="" class="w-75">
+                    </div> <!-- Image Placeholder -->
+                    <div class="card-body">
+                        <h5 class="card-title">Honda SP 160</h5>
+                        <p class="card-text">A new commuter bike with a sporty design and a 162cc engine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div style="height: 200px;">
+                        <img src="honda/Honda CB 300R.jpg" alt="" class="w-75 ">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Honda NX500</h5>
+                        <p class="card-text">An adventure touring bike with long-distance comfort and advanced tech.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 ">
+                    <div style="height: 250px;">
+                        <img src="honda/Honda cbr 250r.jpg" alt="" class="w-75">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Honda CB200X 2024</h5>
+                        <p class="card-text">A refreshed city explorer with rugged looks and better handling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --------------------------------- -->
+
+    <div class="container py-5">
+        <section class="bikes-container">
+            <h2 class="section-title mb-4">All Honda Models</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹80,975 – ₹1,22,853</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda X blade.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda X Blade</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item ">162.71 cc</span>
+                                <span class="bike-spec-item">45–50 km</span>
+                                <span class="bike-spec-item">110 km/h speed</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹84,875 – ₹1,08,226</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda livo.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda livo</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">109.51 cc</span>
+                                <span class="bike-spec-item">65–70 km/l</span>
+                                <span class="bike-spec-item">85 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹39.90 – ₹46.06 lakh</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda goldwing gl1800.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda Goldwing Gl1800</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">1833 cc</span>
+                                <span class="bike-spec-item">14 km/l</span>
+                                <span class="bike-spec-item">180–230 km/h speed</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹46,747 – ₹57,457</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda dream yuga.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda Dream Yuga</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">109.19 cc</span>
+                                <span class="bike-spec-item">65–72 km/l</span>
+                                <span class="bike-spec-item">86–87 km/h speed</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹66,000 – ₹76,400</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cd110.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda cd110</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">109.51 cc</span>
+                                <span class="bike-spec-item">60 km/l</span>
+                                <span class="bike-spec-item">86 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹82,000 – ₹1,01,000</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cb unicorn 150.jpg" alt="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda cb unicorn 150</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">149.2 cc</span>
+                                <span class="bike-spec-item">60 km/l</span>
+                                <span class="bike-spec-item">101 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹23.6 – ₹34 lakh</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cbr 1000rr.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda cbr 1000rr</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">999.9cc</span>
+                                <span class="bike-spec-item">16–18 km/l</span>
+                                <span class="bike-spec-item">299 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹85,590 – ₹91,343</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cb shine.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda Cb Shine</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">123.94 cc</span>
+                                <span class="bike-spec-item">55–65 km/l</span>
+                                <span class="bike-spec-item">100 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹63,857 – ₹84,026</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cb shine sp.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda cb shine sp</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">124.73 cc</span>
+                                <span class="bike-spec-item">65 km/l</span>
+                                <span class="bike-spec-item">93–103 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹60,290 – ₹64,960</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cb shine limited edition.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda cb shine limited edition</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">124.73 cc</span>
+                                <span class="bike-spec-item">65 km/l</span>
+                                <span class="bike-spec-item">93 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹82,500 – ₹96,262</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda cb hornet 160r.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda cb hornet 160r</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">162.71 cc</span>
+                                <span class="bike-spec-item">60 km/l</span>
+                                <span class="bike-spec-item">110 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="bike-card">
+                        <div class="bike-price">₹13.5 – ₹14 lakh</div>
+                        <div class="bike-image">
+                            <img src="honda/Honda africa rwin crf1000l.jpg" alt="" class="">
+                        </div>
+                        <div class="bike-info">
+                            <h3 class="bike-name">Honda africa rwin crf1000l</h3>
+                            <div class="bike-specs">
+                                <span class="bike-spec-item">998 cc</span>
+                                <span class="bike-spec-item">25 km/l</span>
+                                <span class="bike-spec-item">225 km/h</span>
+                            </div>
+                            <button class="btn btn-outline-success px-5 my-3  rounded">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- -------------------------------------------------- -->
+    <section class="container mb-5">
+        <h2 class="mb-4">⚙ Key Features Comparison</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>Model</th>
+                        <th>Engine</th>
+                        <th>ABS</th>
+                        <th>Mileage</th>
+                        <th>Price (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Honda Shine 125</td>
+                        <td>124cc</td>
+                        <td>No</td>
+                        <td>65 km/l</td>
+                        <td>82,000</td>
+                    </tr>
+                    <tr>
+                        <td>Honda Hornet 2.0</td>
+                        <td>184cc</td>
+                        <td>Single Channel</td>
+                        <td>57 km/l</td>
+                        <td>1,40,000</td>
+                    </tr>
+                    <tr>
+                        <td>Honda CB350</td>
+                        <td>348cc</td>
+                        <td>Dual Channel</td>
+                        <td>35 km/l</td>
+                        <td>2,10,000</td>
+                    </tr>
+                    <tr>
+                        <td>Honda CBR 500R</td>
+                        <td>471cc</td>
+                        <td>Dual Channel</td>
+                        <td>28 km/l</td>
+                        <td>5,25,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section: EMI Options -->
+    <section class="container mb-5">
+        <h2 class="mb-4">💳 EMI Options</h2>
+        <p>Honda offers flexible EMI plans with low down payment and competitive interest rates.</p>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Model</th>
+                        <th>Down Payment</th>
+                        <th>Monthly EMI (36 Months)</th>
+                        <th>Interest Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Honda Shine 125</td>
+                        <td>₹10,000</td>
+                        <td>₹2,300</td>
+                        <td>9.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Honda CB350</td>
+                        <td>₹25,000</td>
+                        <td>₹6,800</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Honda CBR 500R</td>
+                        <td>₹50,000</td>
+                        <td>₹15,200</td>
+                        <td>11%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-muted">*EMI values are approximate and may vary based on dealer offers.</p>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-3 bg-light text-muted">
+        &copy; 2025 Honda Bikes Project | Made with ❤
+    </footer>
+</body>
+</html>

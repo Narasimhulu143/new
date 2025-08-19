@@ -1,0 +1,54 @@
+/* Responsive Design */
+ @media (max-width: 1200px) {
+    .banner-item {
+        font-size: 3.5rem;
+    }
+      .banner-item h1{
+        font-size: 2rem;
+    }
+    .banner-item h2{
+        font-size: 1.3rem;
+    }
+    .banner-item p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 60vh;
+    }
+    .banner-item {
+        font-size: 2.2rem;
+        top: 45%;
+    }
+    .banner-item h1{
+        font-size: 2rem;
+    }
+    .banner-item h2{
+        font-size: 1.3rem;
+    }
+    .banner-item p {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 40vh;
+    }
+    .banner-item {
+        font-size: 1.2rem;
+        top: 50%;
+        padding: 0 10px;
+    }
+    .banner-item h1 {
+        font-size: 1.8rem;
+        font-weight: 900;
+    }
+    .banner-item p {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+} 
